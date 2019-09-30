@@ -1,6 +1,6 @@
 # FONCTIONNEMENT DU SCRIPT
 # Ce script permet de parser des fichiers de log compresses et en retirer l'information pertinente en format csv, qui sera imprimee dans la console
-# CE SCRIPT RECOIT EN PARAMETRE UN (ou des) FICHIER DE CONFIGURATION QUI DeCRIT COMMENT IL FONCTIONNERA
+# CE SCRIPT RECOIT EN PARAMETRE UN (ou des) FICHIER DE CONFIGURATION QUI DECRIT COMMENT IL FONCTIONNERA
 # PREMIERE LIGNE: LE(S) FICHIER(S) QUI SONT A DECOMPRESSER (le script accepte ausi les "glob" du style "/var/krb5/log/archives_logs/krb5kdc.*.gz")
 # DEUXIEME LIGNE: UN REGEX PERMETTANT DE "PARSE" CHAQUE LIGNE
 # TROISIEME LIGNE: UNE LIGNE DE NOMBRE QUI CORRESPOND AUX GROUPES REGEX QUI SONT A CONSERVER
@@ -36,9 +36,10 @@
 # /home/dsmast/idsslapd-dsmast/logs/archives_logs/audit.*.gz
 # --bindDN:\s[a-zA-Z\-0-9]*=([a-zA-Z0-9\/.]*)
 # 0
-# > /usr/local/perlfs/bin/perl ./parselog.pl ./config_ldap.txt ./config_ssh.txt ./config_krb.txt > out.txt
+# > perl ./parselog.pl ./config_ldap.txt ./config_ssh.txt ./config_krb.txt > out.txt
 # > cat out.txt
 # ... Ici se trouve une liste de tous les ids qui ont été actifs selon les logs de ssh, kerberos et LDAP
+#
 # Finalement, si les fichiers que vous voulez parser ne sont pas compresses, commenter la ligne qui commmence par "gunzip $input => $output"
 # PS: le dossier /tmp/archives_logs/ doit exister avant d'executer le script si de la decompression doit etre effectuee
 
